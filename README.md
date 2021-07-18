@@ -1,6 +1,9 @@
 # Cypress test cases
 
+Test cases covered by e2e test:
 
+
+for  application : http://elegant-choucrout.herokuapp.com
 
 ## Getting Started
 
