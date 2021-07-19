@@ -1,4 +1,4 @@
-export const AddingABug = (p: Partial<BugDetails> = {}): BugDetails => ({
+export const BugDetails = (p: Partial<BugDetails> = {}): BugDetails => ({
     title: "Bug title",
     description: "Bug description",
     ...p

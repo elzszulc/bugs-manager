@@ -1,13 +1,13 @@
 import { urls } from "../support/urls"
-import { visitingMainPage } from "../support/commands"
-import { AddingABug } from "../support/fixtures"
+import { visitingMainPage, addingBug } from "../support/commands"
+import { BugDetails } from "../support/fixtures"
 
-describe('Login to my page', () => {
+describe('Main page of bug manager', () => {
 
-    context('when user write invlid password', () => {
-        it('should display error message', () => {
+    context('When user has an access to Bug Manager', () => {
+        it('should be able to add a bug', () => {
             visitingMainPage()
-            cy.url().should("eq", urls.mainPage)
+            addingBug(BugDetails())
         })
     })
 })
