@@ -4,4 +4,5 @@ export const mainPageAttibutes = {
     descriptionInput: "input[placeholder='Description']",
     deletingButton: "button[class='btn btn-outline-danger my-2 mx-2']",
     selectingResultsNumber: "select",
+    displayingPagination: "div[class='pagination']",
 }

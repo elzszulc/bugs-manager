@@ -30,10 +30,15 @@ export function deletingBug() {
         .last()
         .click()
         .request('DELETE', 'urls.addingABugApi').its('status').should('be.equal', 200)
+        .get('tr')
+        .last()
+        .contains(('Bug title'), { timeout: 20000 }).should('not.be.visible')
 }
 
-export function navigatePagination() {
+export function navigatePagination(p: PaginationDetails) {
     return cy
+        .get(mainPageAttibutes.displayingPagination)
+        .should('be.visible')
         .get(mainPageAttibutes.selectingResultsNumber)
-        .select
+        .select(p.showPage).should('have.value', p.showPage)
 }

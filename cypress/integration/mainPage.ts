@@ -1,5 +1,5 @@
 import { visitingMainPage, addingBug, deletingBug, navigatePagination } from "../support/commands"
-import { BugDetails } from "../support/fixtures"
+import { BugDetails, PaginationDetails } from "../support/fixtures"
 
 describe('Main page of bug manager', () => {
     beforeEach(() => {
@@ -19,8 +19,8 @@ describe('Main page of bug manager', () => {
     })
 
     context('When user has an access to Bug Manager', () => {
-        it('should be able to navigate by list of result and moving to each page ', () => {
-            navigatePagination()
+        it('should be able to navigate a pagination ', () => {
+            navigatePagination(PaginationDetails())
         })
     })
 })
