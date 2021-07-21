@@ -1,9 +1,10 @@
 # Cypress test cases
 
-Test cases covered by e2e test:
-
-
-for  application : http://elegant-choucrout.herokuapp.com
+Test cases for  application : http://elegant-choucrout.herokuapp.com
+Tests covered :
+- Adding a bug
+- Removing a bug
+- Testing pagination
 
 ## Getting Started
 
