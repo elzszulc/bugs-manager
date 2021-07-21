@@ -14,7 +14,7 @@ describe('Main page of bug manager', () => {
 
     context('When user has an access to Bug Manager', () => {
         it('should be able to delete a bug', () => {
-            deletingBug()
+            deletingBug(BugDetails())
         })
     })
 

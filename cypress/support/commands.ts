@@ -1,10 +1,13 @@
 import { urls } from "../support/urls"
 import { mainPageAttibutes } from "../support/directories"
 
+export const CYPRESS_pageLoadTimeout=100000
+export const CYPRESS_defaultTimeout=2000
+
 export function visitingMainPage() {
     return cy
-        .visit(urls.mainPage)
-        .contains("Bugs Manager")
+        .visit(urls.mainPage, {timeout: CYPRESS_pageLoadTimeout})
+        .contains(mainPageAttibutes.pageTitle)
         .url().should("eq", urls.mainPage)
 }
 
@@ -15,24 +18,23 @@ export function addingBug(p: BugDetails) {
         .get(mainPageAttibutes.descriptionInput)
         .type(p.description)
         .get(mainPageAttibutes.addingBugButton)
+        .wait(CYPRESS_defaultTimeout)
         .click()
         .request('POST', 'urls.addingABugApi').its('status').should('be.equal', 200)
-        /* TO DO: find a way to wait for displaying the last result on the table */
         .get('tr')
-        .last()
-        .contains(('Bug title'), { timeout: 20000 }).should('be.visible')
+        .should('contain', p.title)
 }
 
-export function deletingBug() {
+export function deletingBug(p: BugDetails) {
     return cy
-        .contains(('Bug title'), { timeout: 10000 }).should('be.visible')
+        .contains((p.title), { timeout: CYPRESS_pageLoadTimeout }).should('be.visible')
         .get(mainPageAttibutes.deletingButton)
         .last()
         .click()
+        .wait(CYPRESS_defaultTimeout)
         .request('DELETE', 'urls.addingABugApi').its('status').should('be.equal', 200)
         .get('tr')
-        .last()
-        .contains(('Bug title'), { timeout: 20000 }).should('not.be.visible')
+        .should('not.contain', p.title)
 }
 
 export function navigatePagination(p: PaginationDetails) {
@@ -41,4 +43,8 @@ export function navigatePagination(p: PaginationDetails) {
         .should('be.visible')
         .get(mainPageAttibutes.selectingResultsNumber)
         .select(p.showPage).should('have.value', p.showPage)
+        .get(mainPageAttibutes.inputNumber)
+        .clear()
+        .type(mainPageAttibutes.goToPageNumber)
+        .should('have.value', mainPageAttibutes.goToPageNumber)
 }

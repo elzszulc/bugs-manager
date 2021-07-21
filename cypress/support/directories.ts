@@ -5,4 +5,7 @@ export const mainPageAttibutes = {
     deletingButton: "button[class='btn btn-outline-danger my-2 mx-2']",
     selectingResultsNumber: "select",
     displayingPagination: "div[class='pagination']",
+    pageTitle: "Bugs Manager",
+    inputNumber: "input[type='number']",
+    goToPageNumber: '2'
 }

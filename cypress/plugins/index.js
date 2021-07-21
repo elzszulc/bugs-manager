@@ -17,6 +17,9 @@
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
+
+  config.defaultCommandTimeout = 10000
+
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 }
