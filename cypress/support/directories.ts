@@ -7,5 +7,6 @@ export const mainPageAttibutes = {
     displayingPagination: "div[class='pagination']",
     pageTitle: "Bugs Manager",
     inputNumber: "input[type='number']",
-    goToPageNumber: '2'
+    goToPageNumber: '2',
+    rowOfBugsTabe: 'tr'
 }

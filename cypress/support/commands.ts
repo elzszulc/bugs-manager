@@ -21,7 +21,7 @@ export function addingBug(p: BugDetails) {
         .wait(CYPRESS_defaultTimeout)
         .click()
         .request('POST', 'urls.addingABugApi').its('status').should('be.equal', 200)
-        .get('tr')
+        .get(mainPageAttibutes.rowOfBugsTabe)
         .should('contain', p.title)
 }
 
@@ -33,7 +33,7 @@ export function deletingBug(p: BugDetails) {
         .click()
         .wait(CYPRESS_defaultTimeout)
         .request('DELETE', 'urls.addingABugApi').its('status').should('be.equal', 200)
-        .get('tr')
+        .get(mainPageAttibutes.rowOfBugsTabe)
         .should('not.contain', p.title)
 }
 
